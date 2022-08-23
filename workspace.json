@@ -2,7 +2,6 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "service-1": "apps/service-1",
-    "service-1-deployment": "apps/service-1-deployment"
+    "service-1": "apps/service-1"
   }
 }

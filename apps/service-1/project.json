@@ -7,12 +7,13 @@
       "executor": "@nrwl/node:webpack",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/service-1",
         "main": "apps/service-1/src/main.ts",
+        "outputPath": "apps/service-1/dist",
         "tsConfig": "apps/service-1/tsconfig.app.json",
         "assets": ["apps/service-1/src/assets"]
       },
       "configurations": {
+        "outputPath": "./dist/apps/service-1",
         "production": {
           "optimization": true,
           "extractLicenses": true,
