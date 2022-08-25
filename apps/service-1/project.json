@@ -27,6 +27,21 @@
         }
       }
     },
+
+    "synth": {
+      "executor": "./tools/executors/cdk-synth:cdk-synth",
+      "options": {
+        "filePath": "apps/service-1/dist/main.js"
+      }
+    },
+
+    "deploy": {
+      "executor": "./tools/executors/cdk-deploy:cdk-deploy",
+      "options": {
+        "filePath": "apps/service-1/dist/main.js"
+      }
+    },
+
     "serve": {
       "executor": "@nrwl/node:node",
       "options": {

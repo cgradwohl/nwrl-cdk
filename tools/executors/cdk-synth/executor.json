@@ -1,0 +1,9 @@
+{
+  "executors": {
+    "cdk-synth": {
+      "implementation": "./impl",
+      "schema": "./schema.json",
+      "description": "Runs `cdk synth --app <filePath>` (to test CloudFormation template before deploy)."
+    }
+  }
+}

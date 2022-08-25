@@ -5,7 +5,9 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "build:tools": "npx tsc tools/executors/",
+    "test": "nx test",
+    "cdk": "cdk"
   },
   "private": true,
   "devDependencies": {

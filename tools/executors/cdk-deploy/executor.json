@@ -1,0 +1,9 @@
+{
+  "executors": {
+    "cdk-deploy": {
+      "implementation": "./impl",
+      "schema": "./schema.json",
+      "description": "Runs `cdk deploy --app <filePath>`, to deploy CloudFormation Stack."
+    }
+  }
+}
