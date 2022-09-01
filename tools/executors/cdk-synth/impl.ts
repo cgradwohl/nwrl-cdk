@@ -3,14 +3,15 @@ import { exec } from 'child_process';
 import { promisify } from 'util';
 
 export interface CDKSynthExecutorOptions {
-  filePath: string;
+  main: string;
+  outputPath: string;
 }
 
 export default async function CDKSynthExecutor(
   options: CDKSynthExecutorOptions,
   context: ExecutorContext
 ): Promise<{ success: boolean }> {
-  const command = `npx cdk synth --app "${options.filePath}"`;
+  const command = `npx cdk synth --app "${options.main}" --output "${options.outputPath}"`;
   console.info(`Executing ${command}`);
 
   const { stdout, stderr } = await promisify(exec)(command);

@@ -2,12 +2,13 @@ import type { ExecutorContext } from '@nrwl/devkit';
 import { spawn, spawnSync } from 'child_process';
 
 export interface CDKDeployExecutorOptions {
-  filePath: string;
+  main: string;
+  outputPath: string;
 }
 
 export default function CDKDeployExecutor(options: CDKDeployExecutorOptions) {
   return new Promise((resolve) => {
-    const command = `npx cdk deploy --app "${options.filePath}"`;
+    const command = `npx cdk deploy --app "${options.main}" --output "${options.outputPath}"`;
 
     console.info(`Executing ${command} \n`);
 

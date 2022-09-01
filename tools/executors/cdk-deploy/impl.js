@@ -2,8 +2,8 @@
 exports.__esModule = true;
 var child_process_1 = require("child_process");
 function CDKDeployExecutor(options) {
-    return new Promise(function (resolve, reject) {
-        var command = "npx cdk deploy --app \"".concat(options.filePath, "\"");
+    return new Promise(function (resolve) {
+        var command = "npx cdk deploy --app \"".concat(options.main, "\" --output \"").concat(options.outputPath, "\"");
         console.info("Executing ".concat(command, " \n"));
         var child = (0, child_process_1.spawn)(command, {
             shell: true,

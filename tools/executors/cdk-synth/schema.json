@@ -3,9 +3,13 @@
   "type": "object",
   "cli": "nx",
   "properties": {
-    "filePath": {
+    "main": {
       "type": "string",
-      "description": "The file path to compiled CDK Stack (microservice)."
+      "description": "The file path to main.js, which should be a TS compiled CDK Stack (microservice)."
+    },
+    "outputPath": {
+      "type": "string",
+      "description": "Emits the synthesized cloud assembly into a directory."
     }
   }
 }

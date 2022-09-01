@@ -44,7 +44,7 @@ function CDKSynthExecutor(options, context) {
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
-                    command = "npx cdk synth --app \"".concat(options.filePath, "\"");
+                    command = "npx cdk synth --app \"".concat(options.main, "\" --output \"").concat(options.outputPath, "\"");
                     console.info("Executing ".concat(command));
                     return [4 /*yield*/, (0, util_1.promisify)(child_process_1.exec)(command)];
                 case 1:

@@ -1,5 +1,3 @@
-
-
 # Happynrwl
 
 This project was generated using [Nx](https://nx.dev).
@@ -54,6 +52,7 @@ Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The 
 ## Code scaffolding
 
 Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
+Run `npx nx generate @nrwl/node:app service-2` to generate a new app aka a service.
 
 ## Build
 
@@ -79,9 +78,11 @@ Run `nx graph` to see a diagram of the dependencies of your projects.
 
 Visit the [Nx Documentation](https://nx.dev) to learn more.
 
-
-
 ## ☁ Nx Cloud
+
+## Nx Custom Executors
+
+to build a custom executor: `npx tsc tools/executors/TASK_NAME/impl`
 
 ### Distributed Computation Caching & Distributed Task Execution
 
