@@ -1,10 +1,5 @@
-import type { ExecutorContext } from '@nrwl/devkit';
-import { spawn, spawnSync } from 'child_process';
-
-export interface CDKDeployExecutorOptions {
-  main: string;
-  outputPath: string;
-}
+import { spawn } from 'child_process';
+import { CDKDeployExecutorOptions } from './schema';
 
 export default function CDKDeployExecutor(options: CDKDeployExecutorOptions) {
   return new Promise((resolve) => {

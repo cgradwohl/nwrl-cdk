@@ -1,11 +1,7 @@
 import type { ExecutorContext } from '@nrwl/devkit';
 import { exec } from 'child_process';
 import { promisify } from 'util';
-
-export interface CDKSynthExecutorOptions {
-  main: string;
-  outputPath: string;
-}
+import { CDKSynthExecutorOptions } from './schema';
 
 export default async function CDKSynthExecutor(
   options: CDKSynthExecutorOptions,

@@ -90,7 +90,7 @@ Visit the [Nx Documentation](https://nx.dev) to learn more.
 
 ## Nx Custom Executors
 
-To compile a custom executor: `npx tsc tools/executors/TASK_NAME/impl`
+To compile a custom executor: `npx tsc tools/executors/[executor]/impl`
 
 Run `npx nx run [service name]:synth` to CDK Synth the Service Stack
 Run `npx nx run [service name]:deploy` to CDK Deploy the Service Stack
