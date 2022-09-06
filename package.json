@@ -11,7 +11,9 @@
   },
   "private": true,
   "devDependencies": {
+    "@ago-dev/nx-aws-cdk-v2": "^1.1.1",
     "@nrwl/cli": "14.5.8",
+    "@nrwl/devkit": "^14.6.4",
     "@nrwl/eslint-plugin-nx": "14.5.8",
     "@nrwl/jest": "14.5.8",
     "@nrwl/linter": "14.5.8",
@@ -25,6 +27,7 @@
     "aws-cdk": "^2.38.1",
     "eslint": "~8.15.0",
     "eslint-config-prettier": "8.1.0",
+    "eslint-plugin-cdk": "^1.7.0",
     "jest": "27.5.1",
     "nx": "14.5.8",
     "prettier": "^2.6.2",

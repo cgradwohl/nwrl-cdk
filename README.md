@@ -8,7 +8,9 @@ This project was generated using [Nx](https://nx.dev).
 
 ## TODOs
 
-- [] create a custom plugin to generate a cdk service: https://nx.dev/packages/nx-plugin
+- [] build a cdk-bootstrap executor
+- [] custom generator tasks: ensure that the bootstrapQualifier is required in cdk.json: https://docs.aws.amazon.com/cdk/v2/guide/bootstrapping.html
+- [] move custom executors and generators into a plugin repo: https://nx.dev/packages/nx-plugin
 
 ## Adding capabilities to your workspace
 
@@ -58,6 +60,8 @@ Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The 
 Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
 Run `npx nx generate @nrwl/node:app service-2` to generate a new app aka a service.
 
+Run `npx nx workspace-generator my-generator [service name]` to generate a new CDK service
+
 ## Build
 
 Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
@@ -86,7 +90,10 @@ Visit the [Nx Documentation](https://nx.dev) to learn more.
 
 ## Nx Custom Executors
 
-to build a custom executor: `npx tsc tools/executors/TASK_NAME/impl`
+To compile a custom executor: `npx tsc tools/executors/TASK_NAME/impl`
+
+Run `npx nx run [service name]:synth` to CDK Synth the Service Stack
+Run `npx nx run [service name]:deploy` to CDK Deploy the Service Stack
 
 ### Distributed Computation Caching & Distributed Task Execution
 

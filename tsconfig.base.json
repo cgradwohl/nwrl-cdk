@@ -14,7 +14,13 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@happynrwl/mylib": ["libs/mylib/src/index.ts"],
+      "@happynrwl/mylib2": ["libs/mylib2/src/index.ts"],
+      "@happynrwl/mylib3": ["libs/mylib3/src/index.ts"],
+      "@happynrwl/mylib4": ["libs/mylib4/src/index.ts"],
+      "@happynrwl/mylib5": ["libs/mylib5/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
