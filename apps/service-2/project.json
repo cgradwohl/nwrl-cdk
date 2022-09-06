@@ -1,0 +1,72 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/service-2/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "main": "apps/service-2/src/main.ts",
+        "outputPath": "apps/service-2/dist",
+        "tsConfig": "apps/service-2/tsconfig.app.json",
+        "assets": ["apps/service-2/src/assets"]
+      },
+      "configurations": {
+        "outputPath": "./dist/apps/service-2",
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/service-2/src/environments/environment.ts",
+              "with": "apps/service-2/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:node",
+      "options": {
+        "buildTarget": "service-2:build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "service-2:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/service-2/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/service-2"],
+      "options": {
+        "jestConfig": "apps/service-2/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "synth": {
+      "executor": "./tools/executors/cdk-synth:cdk-synth",
+      "options": {
+        "main": "apps/service-2/dist/main.js",
+        "outputPath": "apps/service-2/cdk.out"
+      }
+    },
+    "deploy": {
+      "executor": "./tools/executors/cdk-deploy:cdk-deploy",
+      "options": {
+        "main": "apps/service-2/dist/main.js",
+        "outputPath": "apps/service-2/cdk.out"
+      }
+    }
+  },
+  "tags": []
+}
