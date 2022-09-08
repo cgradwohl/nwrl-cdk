@@ -1,66 +1,30 @@
 # Happynrwl
 
-This project was generated using [Nx](https://nx.dev).
+### Prerequisites
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+- AWS CDK
+- AWS CLI
+- node.js/ npm
 
-🔎 **Smart, Fast and Extensible Build System**
+## Getting Started
+
+0. You will need to bootstrap the CDK to your environment. Please follow the instructions here: https://docs.aws.amazon.com/cdk/v2/guide/bootstrapping.html. Once you have bootstrapped a service in this repo, you will not have to bootstrap for subsequent services. (see TODOs below)
+
+1. Run `npx nx workspace-generator create-cdk-stack [service name]` to generate a new CDK Stack. This is an example of a custom generator in nx.
+
+2. Run `npx nx run [service name]:build` to run the TS compiler and build the stack to its respective `/dist` folder
+
+3. Run `npx nx run [service name]:synth` to synthesize the CDK to Cloud Formation. This is an example of a custom executor in nx.
+
+4. Run `npx nx run [service name]:deploy` to deploy the service. This is an example of a custom executor in nx.
+
+5. Run `npx nx print-affected --target=build --select=projects` to see a list of projects that have changed since the last commit. This functionality can be extended in a Github Action so that only the latest stacks get deployed.
 
 ## TODOs
 
-- [] build a cdk-bootstrap executor
+- [] build a custom executor to bootstrap the cdk to a dev environment
 - [] custom generator tasks: ensure that the bootstrapQualifier is required in cdk.json: https://docs.aws.amazon.com/cdk/v2/guide/bootstrapping.html
-- [] move custom executors and generators into a plugin repo: https://nx.dev/packages/nx-plugin
-
-## Adding capabilities to your workspace
-
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
-
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
-
-Below are our core plugins:
-
-- [React](https://reactjs.org)
-  - `npm install --save-dev @nrwl/react`
-- Web (no framework frontends)
-  - `npm install --save-dev @nrwl/web`
-- [Angular](https://angular.io)
-  - `npm install --save-dev @nrwl/angular`
-- [Nest](https://nestjs.com)
-  - `npm install --save-dev @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `npm install --save-dev @nrwl/express`
-- [Node](https://nodejs.org)
-  - `npm install --save-dev @nrwl/node`
-
-There are also many [community plugins](https://nx.dev/community) you could add.
-
-## Generate an application
-
-Run `nx g @nrwl/react:app my-app` to generate an application.
-
-> You can use any of the plugins above to generate applications as well.
-
-When using Nx, you can create multiple applications and libraries in the same workspace.
-
-## Generate a library
-
-Run `nx g @nrwl/react:lib my-lib` to generate a library.
-
-> You can also use any of the plugins above to generate libraries as well.
-
-Libraries are shareable across libraries and applications. They can be imported from `@happynrwl/mylib`.
-
-## Development server
-
-Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
-Run `npx nx generate @nrwl/node:app service-2` to generate a new app aka a service.
-
-Run `npx nx workspace-generator my-generator [service name]` to generate a new CDK service
+- [] add test scaffolding to the `create-cdk-stack` generator.
 
 ## Build
 
@@ -82,25 +46,7 @@ Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
 
 Run `nx graph` to see a diagram of the dependencies of your projects.
 
-## Further help
+## Developing Nx Custom Executors
 
-Visit the [Nx Documentation](https://nx.dev) to learn more.
-
-## ☁ Nx Cloud
-
-## Nx Custom Executors
-
-To compile a custom executor: `npx tsc tools/executors/[executor]/impl`
-
-Run `npx nx run [service name]:synth` to CDK Synth the Service Stack
-Run `npx nx run [service name]:deploy` to CDK Deploy the Service Stack
-
-### Distributed Computation Caching & Distributed Task Execution
-
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
-
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
-
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
-
-Visit [Nx Cloud](https://nx.app/) to learn more.
+When developing a custom executor, you will need to compile it for use with nx.
+Run `npx tsc tools/executors/[executor]/impl` to compile TS --> JS.

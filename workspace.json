@@ -2,10 +2,7 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "mylib": "apps/mylib",
     "service-1": "apps/service-1",
-    "service-2": "apps/service-2",
-    "service-3": "apps/service-3",
-    "service-4": "apps/service-4"
+    "service-2": "apps/service-2"
   }
 }
