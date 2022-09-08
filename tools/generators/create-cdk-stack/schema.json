@@ -1,12 +1,12 @@
 {
   "$schema": "http://json-schema.org/schema",
   "cli": "nx",
-  "$id": "my-generator",
+  "$id": "create-cdk-stack",
   "type": "object",
   "properties": {
     "name": {
       "type": "string",
-      "description": "Library name",
+      "description": "CDK Stack Name",
       "$default": {
         "$source": "argv",
         "index": 0
